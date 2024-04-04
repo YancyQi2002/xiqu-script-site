@@ -12,7 +12,6 @@ export default defineConfig({
   root: path.join(__dirname, 'docs'),
   title: 'Rspress-Jingju-Site',
   description: 'Rspack-based Site for Jingju',
-  base: '/scriptsite/',
   builderPlugins: [
     pluginImageCompress([
       { use: 'jpeg', test: /\.(jpg|jpeg|jpe)$/ },
