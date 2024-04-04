@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: yangrendongzhushi;
+  src: url('../fonts/yangrendongzhushiziti.ttf');
+}
+
+.rspress-doc {
+  font-family: yangrendongzhushi, 'KaiTi', 'STKaiti';
+}
+
+.rspress-doc:has(h1) :where(h1) {
+  @apply text-4xl;
+}
+
+.rspress-doc:has(h2) :where(h2) {
+  @apply mt-0;
+  background: linear-gradient(to right, #EC695C, #61C454) no-repeat right bottom;
+  background-size: 0 2px;
+  transition: background-size 1300ms;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  .rspress-doc:has(h2) :where(h2) {
+    background: linear-gradient(to right, color(display-p3 .9255 .4118 .3608), color(display-p3 .3804 .7686 .3294)) no-repeat right bottom;
+    background-size: 0 2px;
+    transition: background-size 1300ms;
+  }
+}
+
+.rspress-doc:has(h2) :where(h2):hover {
+  background-position-x: left;
+  background-size: 100% 2px;
+}
+
+.rspress-doc:has(p) :where(p) {
+  @apply text-lg font-bold;
+}
