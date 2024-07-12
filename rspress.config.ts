@@ -3,6 +3,7 @@ import { defineConfig } from 'rspress/config'
 
 import { Temporal } from '@js-temporal/polyfill'
 import { pluginImageCompress } from '@rsbuild/plugin-image-compress'
+import readingTime from 'rspress-plugin-reading-time'
 
 // 使用 Temporal API 获取日期
 const date = Temporal.PlainDate.from(Temporal.Now.plainDateISO().toString())
@@ -12,7 +13,10 @@ export default defineConfig({
   root: path.join(__dirname, 'docs'),
   title: 'Rspress-Jingju-Site',
   description: 'Rspack-based Site for Jingju',
-  builderPlugins: [
+  plugins: [
+    readingTime({
+      defaultLocale: 'zh-CN',
+    }),
     pluginImageCompress([
       { use: 'jpeg', test: /\.(jpg|jpeg|jpe)$/ },
       'pngLossless',
