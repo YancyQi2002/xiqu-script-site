@@ -1,0 +1,54 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "rspress-jingju-site",
+  "version": "0.1.0",
+  "identifier": "com.yancy.dev",
+  "build": {
+    "frontendDist": "../doc_build",
+    "devUrl": "http://localhost:3000",
+    "beforeDevCommand": "bun run dev",
+    "beforeBuildCommand": "bun run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "rspress-jingju-site",
+        "width": 800,
+        "height": 600,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "timestampUrl": "",
+      "webviewInstallMode": {
+        "silent": true,
+        "type": "embedBootstrapper"
+      },
+      "wix": {
+        "language": [
+          "en-US",
+          "zh-CN",
+          "zh-TW",
+          "ru-RU"
+        ]
+      }
+    }
+  }
+}

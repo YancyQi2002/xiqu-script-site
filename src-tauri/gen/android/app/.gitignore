@@ -1,0 +1,14 @@
+/src/main/java/com/yancy/dev/generated
+/src/main/jniLibs/**/*.so
+/src/main/assets/tauri.conf.json
+/tauri.build.gradle.kts
+/proguard-tauri.pro
+/tauri.properties
+/build/generated
+/build/intermediates
+/build/kotlin
+/build/kotlinToolingMetadata
+/build/tmp
+/build/outputs/logs
+/build/outputs/mapping
+/build/outputs/sdk-dependencies
