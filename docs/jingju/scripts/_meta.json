@@ -58,5 +58,10 @@
     "type": "file",
     "name": "12-zhuofangcao",
     "label": "捉放曹 剧本"
+  },
+  {
+    "type": "file",
+    "name": "13-quxingyang",
+    "label": "取荥阳 剧本"
   }
 ]
