@@ -15,7 +15,7 @@
   "devDependencies": {
     "@rsbuild/plugin-image-compress": "^1.0.2",
     "@tauri-apps/cli": "^2.0.4",
-    "@types/node": "^22.8.6",
+    "@types/node": "^22.8.7",
     "tailwindcss": "^3.4.14"
   }
 }
