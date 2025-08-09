@@ -10,11 +10,11 @@ hero:
       text: 查看剧本
       link: /jingju/index
     - theme: alt
-      text: Github
+      text: GitHub
       link: https://github.com/YancyQi2002
   image:
     src: /rspress-icon.png
-    alt: Rspress-Jingju-Site Logo
+    alt: Logo
 features:
   - title: Blazing fast build speed
     details: The core compilation module is based on the Rust front-end toolchain, providing a more ultimate development experience.

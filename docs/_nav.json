@@ -1,0 +1,16 @@
+[
+  {
+    "text": "剧本",
+    "link": "/jingju/",
+    "activeMatch": "/jingju/index"
+  },
+  {
+    "text": "Blog",
+    "link": "https://yx-blog.tk"
+  },
+  {
+    "text": "致谢",
+    "link": "/thanks",
+    "activeMatch": "/thanks"
+  }
+]

@@ -6,7 +6,7 @@ authors = ["you"]
 license = ""
 repository = ""
 edition = "2021"
-rust-version = "1.83"
+rust-version = "1.88"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -15,23 +15,22 @@ name = "app_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
-tauri-build = { version = "2.0.5", features = [] }
+tauri-build = { version = "2.3.1", features = [  "config-json5" ] }
 
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 log = "0.4"
-tauri = { version = "2.2.2", features = [] }
-tauri-plugin-log = "2.2.0"
-tauri-plugin-notification = { version = "2.2.0", features = [ "windows7-compat" ] }
+tauri = { version = "2.7.0", features = [  "config-json5", "tray-icon", "image-ico" ] }
+tauri-plugin-notification = { version = "2", features = [ "windows7-compat" ] }
+tauri-plugin-log = "2"
 
 [profile.dev]
-opt-level = 1               # Use slightly better optimizations.
-lto = "thin"                # Performs "thin" LTO. It takes substantially less time to run while still achieving performance gains similar to "fat".
+incremental = true # 以较小的步骤编译您的二进制文件。
 
 [profile.release]
-panic = "abort"             # Strip expensive panic clean-up logic
-codegen-units = 1           # Compile crates one after another so the compiler can optimize better
-lto = true                  # Enables link to optimizations
-opt-level = "s"             # Optimize for binary size
-strip = true                # Automatically strip symbols from the binary.
+codegen-units = 1 # 允许 LLVM 执行更好的优化。
+lto = true # 启用链接时优化。
+opt-level = "s" # 优先考虑小的二进制文件大小。如果您更喜欢速度，请使用 `3`。
+panic = "abort" # 通过禁用 panic 处理程序来提高性能。
+strip = true # 确保移除调试符号。

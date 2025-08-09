@@ -1,40 +1,88 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+/* 设计令牌：使用原生 CSS 自定义属性，避免工具链对 @theme 的识别告警 */
+:root {
+  /* 字体令牌 */
+  --font-doc: "yangrendongzhushi", "KaiTi", "STKaiti", ui-serif, serif;
+
+  /* 品牌色（sRGB 回退） */
+  --color-brand-1: #EC695C;
+  --color-brand-2: #61C454;
+}
+
+/* 自托管字体，优化加载体验 */
 @font-face {
+  @apply not-italic font-normal;
   font-family: yangrendongzhushi;
-  src: url('../fonts/yangrendongzhushiziti.ttf');
+  src: 
+    url('../fonts/yangrendongzhushiziti.woff2') format('woff2'),
+    url('../fonts/yangrendongzhushiziti.ttf') format('truetype');
+  font-display: swap;
 }
 
 .rspress-doc {
-  font-family: yangrendongzhushi, 'KaiTi', 'STKaiti';
+  font-family: var(--font-doc);
+  font-synthesis: weight;
 }
 
-.rspress-doc:has(h1) :where(h1) {
+.rspress-doc :where(h1) {
   @apply text-4xl;
 }
 
-.rspress-doc:has(h2) :where(h2) {
+.rspress-doc :where(h2) {
   @apply mt-0;
-  background: linear-gradient(to right, #EC695C, #61C454) no-repeat right bottom;
+  background: linear-gradient(
+      to right,
+      var(--color-brand-1),
+      var(--color-brand-2)
+    ) no-repeat right bottom;
   background-size: 0 2px;
-  transition: background-size 1300ms;
+  transition: background-size 700ms ease;
 }
 
+/* 有 Display-P3 支持时提升到 P3（更广色域） */
 @supports (color: color(display-p3 1 1 1)) {
-  .rspress-doc:has(h2) :where(h2) {
-    background: linear-gradient(to right, color(display-p3 .9255 .4118 .3608), color(display-p3 .3804 .7686 .3294)) no-repeat right bottom;
-    background-size: 0 2px;
-    transition: background-size 1300ms;
+  :root {
+    --color-brand-1: color(display-p3 0.9255 0.4118 0.3608);
+    --color-brand-2: color(display-p3 0.3804 0.7686 0.3294);
   }
 }
 
-.rspress-doc:has(h2) :where(h2):hover {
+/* 若同时支持 OKLCH，则优先使用 OKLCH（更一致的感知亮度与色调控制） */
+@supports (color: oklch(1 0 0)) {
+  :root {
+    --color-brand-1: oklch(63% 0.22 27);
+    --color-brand-2: oklch(78% 0.16 141);
+  }
+}
+
+@media (hover: hover) {
+  .rspress-doc :where(h2):hover {
+    background-position-x: left;
+    background-size: 100% 2px;
+  }
+}
+
+.rspress-doc :where(h2:focus-visible) {
   background-position-x: left;
   background-size: 100% 2px;
 }
 
-.rspress-doc:has(p) :where(p) {
+.rspress-doc :where(p) {
   @apply text-lg font-bold;
+}
+
+/* 高对比度模式：使用边框替代背景装饰，确保可见性 */
+@media (forced-colors: active) {
+  .rspress-doc :where(h2) {
+    background: none;
+    border-bottom: 2px solid CanvasText;
+  }
+}
+
+/* 无障碍：减少动画偏好时缩短或移除过渡 */
+@media (prefers-reduced-motion: reduce) {
+  .rspress-doc :where(h2) {
+    transition: none;
+  }
 }
