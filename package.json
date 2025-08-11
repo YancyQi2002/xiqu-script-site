@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@js-temporal/polyfill": "^0.5.1",
-    "@rspress/core": "2.0.0-beta.25",
+    "@rspress/core": "2.0.0-beta.26",
     "license-report": "^6.8.0",
     "rspress-plugin-reading-time": "^0.3.0"
   },
