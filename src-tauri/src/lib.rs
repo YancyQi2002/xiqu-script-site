@@ -1,10 +1,9 @@
 // ===================== 移动端入口 =====================
-// 该函数仅在 Android/iOS 平台生效，并作为移动端入口点。
+// 该函数仅在 Android/iOS 平台生效，并作为移动端入口点
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run_mobile() {
   tauri::Builder::default()
     .setup(|app| {
-      // 仅在 debug 模式下启用日志插件，方便开发调试。
       if cfg!(debug_assertions) {
         app.handle().plugin(
           tauri_plugin_log::Builder::default()
@@ -19,7 +18,7 @@ pub fn run_mobile() {
 }
 
 // ===================== Windows 桌面端入口 =====================
-// 该函数仅在 Windows 平台生效，包含托盘图标、菜单和事件响应。
+// 该函数仅在 Windows 平台生效，包含托盘图标、菜单和事件响应
 #[cfg(target_os = "windows")]
 pub fn run_windows() {
   use tauri::{Manager, menu::{Menu, MenuItem}, tray::TrayIconBuilder, image::Image};
@@ -89,12 +88,12 @@ pub fn run_windows() {
 }
 
 // ===================== 其他桌面平台入口（如 macOS、Linux） =====================
-// 该函数在非移动端且非 Windows 平台生效，作为普通桌面端入口。
+// 该函数在非移动端且非 Windows 平台生效，作为普通桌面端入口
 #[cfg(all(not(any(target_os = "android", target_os = "ios")), not(target_os = "windows")))]
 pub fn run_desktop() {
   tauri::Builder::default()
     .setup(|app| {
-      // 仅在 debug 模式下启用日志插件，方便开发调试。
+      // 仅在 debug 模式下启用日志插件，方便开发调试
       if cfg!(debug_assertions) {
         app.handle().plugin(
           tauri_plugin_log::Builder::default()
