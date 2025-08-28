@@ -1,5 +1,5 @@
-import * as path from 'node:path';
-import { defineConfig } from '@rspress/core';
+import * as path from 'node:path'
+import { defineConfig } from '@rspress/core'
 import { Temporal } from '@js-temporal/polyfill'
 import { pluginImageCompress } from '@rsbuild/plugin-image-compress'
 // import readingTime from 'rspress-plugin-reading-time'
