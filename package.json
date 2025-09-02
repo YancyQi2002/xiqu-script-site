@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "@js-temporal/polyfill": "^0.5.1",
-    "@rspress/core": "2.0.0-beta.28",
+    "@rspress/core": "2.0.0-beta.29",
     "license-report": "^6.8.0",
     "rspress-plugin-reading-time": "^0.3.0"
   },
   "devDependencies": {
     "@rsbuild/plugin-image-compress": "^1.3.1",
     "@tailwindcss/postcss": "^4.1.12",
-    "@tauri-apps/cli": "^2.8.3",
+    "@tauri-apps/cli": "^2.8.4",
     "@types/node": "^24.3.0",
     "tailwindcss": "^4.1.12"
   }

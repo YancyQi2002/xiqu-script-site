@@ -9,7 +9,12 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
     "moduleResolution": "bundler",
+    "noUncheckedSideEffectImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "useDefineForClassFields": true,
     "allowImportingTsExtensions": true
   },
