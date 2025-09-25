@@ -1,0 +1,237 @@
+@reference "../../../styles/index.css";
+
+.linkCard {
+  @apply relative flex justify-between items-start cursor-pointer overflow-hidden;
+
+  /* 容器查询支持 */
+  container-type: inline-size;
+  container-name: linkcard;
+  
+  /* 使用逻辑属性和响应式设计 */
+  padding-block: clamp(1rem, 2.5vw, 1.5rem);
+  padding-inline: clamp(1rem, 3vw, 1.5rem);
+  margin-block-end: clamp(0.5rem, 1vw, 1rem);
+  
+  /* 现代化边框和背景 */
+  border: 1px solid var(--rp-c-divider);
+  border-radius: clamp(8px, 1.5vw, 12px);
+  background-color: var(--rp-c-bg);
+  
+  /* 高性能过渡动画 */
+  transition: 
+    border-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* 性能优化 */
+  will-change: transform, box-shadow;
+  
+  /* 现代化焦点管理 */
+  &:focus-within {
+    outline: 2px solid var(--rp-c-brand);
+    outline-offset: 2px;
+  }
+}
+
+/* 使用现代化伪类选择器和color-mix */
+.linkCard:is(:hover, :focus-within) {
+  border-color: var(--rp-c-brand);
+  background-color: var(--rp-c-bg-soft);
+  box-shadow: 
+    0 4px 12px color-mix(in srgb, var(--rp-c-brand) 10%, transparent),
+    0 1px 3px color-mix(in srgb, var(--rp-c-text-1) 5%, transparent);
+  transform: translateY(-2px);
+}
+
+.linkCard:active {
+  transform: translateY(0);
+  transition-duration: 75ms;
+}
+
+/* 现代化内容布局 */
+.content {
+  @apply flex flex-1 flex-col text-pretty;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  min-inline-size: 0;
+}
+
+/* 现代化链接样式 */
+.link {
+  @apply relative inline-flex items-center font-semibold;
+  gap: clamp(0.25rem, 1vw, 0.5rem);
+  text-decoration: none;
+  color: var(--rp-c-text-1);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.375;
+  
+  /* 高性能颜色过渡 */
+  transition: color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* 现代化焦点样式 */
+  &:focus-visible {
+    @apply rounded-sm;
+    outline: 2px solid var(--rp-c-brand);
+    outline-offset: 2px;
+  }
+}
+
+.link:is(:hover, :focus-visible) {
+  @apply rounded-sm no-underline!;
+  color: var(--rp-c-brand);
+}
+
+/* 优化点击区域 */
+.link::before {
+  @apply absolute;
+  content: '';
+  inset: -0.5rem;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* 现代化标题样式 */
+.title {
+  @apply m-0 text-inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  
+  /* 现代化文本渲染优化 */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* 现代化描述文本 */
+.description {
+  @apply m-0 text-balance text-ellipsis overflow-hidden;
+  display: -webkit-box;
+  font-size: clamp(0.8125rem, 2vw, 0.875rem);
+  line-height: 1.625;
+  color: var(--rp-c-text-2);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  hanging-punctuation: first last;
+}
+
+/* 现代化图标容器 */
+.iconWrapper {
+  @apply flex justify-center items-center shrink-0;
+  inline-size: clamp(1.5rem, 4vw, 2rem);
+  block-size: clamp(1.5rem, 4vw, 2rem);
+  margin-inline-start: clamp(0.75rem, 2vw, 1rem);
+  color: var(--rp-c-text-3);
+  
+  /* 高性能变换 */
+  transition: 
+    color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* 现代化图标优化 */
+  & > svg {
+    @apply w-full h-full fill-current;
+  }
+}
+
+.linkCard:is(:hover, :focus-within) .iconWrapper {
+  color: var(--rp-c-brand);
+  transform: translateX(0.125rem);
+}
+
+/* 现代化容器查询响应式设计 */
+@container linkcard (max-width: 400px) {
+  .linkCard {
+    padding-block: 1rem;
+    padding-inline: 1rem;
+  }
+  
+  .link {
+    @apply text-base;
+  }
+  
+  .description {
+    font-size: 0.8125rem;
+  }
+  
+  .iconWrapper {
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+    margin-inline-start: 0.75rem;
+  }
+}
+
+/* 传统媒体查询作为回退 */
+@media (max-width: 768px) {
+  .linkCard {
+    padding-block: 1rem;
+    padding-inline: 1rem;
+  }
+  
+  .iconWrapper {
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+    margin-inline-start: 0.75rem;
+  }
+  
+  .link {
+    @apply text-base;
+  }
+  
+  .description {
+    font-size: 0.8125rem;
+  }
+}
+
+/* 现代化暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+  .linkCard {
+    /* 暗色模式下的优化阴影 */
+    &:is(:hover, :focus-within) {
+      box-shadow: 
+        0 4px 12px color-mix(in srgb, var(--rp-c-brand) 15%, transparent),
+        0 1px 3px color-mix(in srgb, var(--rp-c-text-1) 8%, transparent);
+    }
+  }
+}
+
+/* 减少动画偏好支持 */
+@media (prefers-reduced-motion: reduce) {
+  .linkCard,
+  .link,
+  .iconWrapper {
+    transition: none;
+  }
+  
+  .linkCard:is(:hover, :focus-within) {
+    transform: none;
+  }
+  
+  .linkCard:is(:hover, :focus-within) .iconWrapper {
+    transform: none;
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .linkCard {
+    border-width: 2px;
+    
+    &:is(:hover, :focus-within) {
+      border-color: var(--rp-c-brand);
+      box-shadow: 0 0 0 2px var(--rp-c-brand);
+    }
+  }
+}
+
+/* 现代化性能优化 */
+@supports (backdrop-filter: blur(10px)) {
+  .linkCard:is(:hover, :focus-within) {
+    backdrop-filter: blur(0.5px);
+  }
+}
+
+/* 现代化滚动行为 */
+@supports (scroll-behavior: smooth) {
+  .linkCard {
+    scroll-margin-top: 2rem;
+  }
+}

@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "license-report --only=prod,dev --output=json --fields=name --fields=installedVersion --fields=licenseType > src/components/dependencies-licenses.json && rspress build",
+    "build": "license-report --only=prod,dev --output=json --fields=name --fields=installedVersion --fields=licenseType > src/components/DependenciesList/dependencies-licenses.json && rspress build",
     "dev": "rspress dev",
     "preview": "rspress preview"
   },
   "dependencies": {
     "@js-temporal/polyfill": "^0.5.1",
-    "@rspress/core": "2.0.0-beta.32",
+    "@rspress/core": "2.0.0-beta.33",
     "license-report": "^6.8.0",
     "rspress-plugin-reading-time": "^0.3.0"
   },
@@ -17,7 +17,7 @@
     "@rsbuild/plugin-image-compress": "^1.3.1",
     "@tailwindcss/postcss": "^4.1.13",
     "@tauri-apps/cli": "^2.8.4",
-    "@types/node": "^24.3.3",
+    "@types/node": "^24.5.2",
     "tailwindcss": "^4.1.13"
   }
 }
