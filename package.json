@@ -5,7 +5,8 @@
   "scripts": {
     "build": "license-report --only=prod,dev --output=json --fields=name --fields=installedVersion --fields=licenseType > src/components/DependenciesList/dependencies-licenses.json && rspress build",
     "dev": "rspress dev",
-    "preview": "rspress preview"
+    "preview": "rspress preview",
+    "netlify-deploy": "netlify deploy --prod"
   },
   "dependencies": {
     "@js-temporal/polyfill": "^0.5.1",
@@ -18,6 +19,7 @@
     "@tailwindcss/postcss": "^4.1.13",
     "@tauri-apps/cli": "^2.8.4",
     "@types/node": "^24.5.2",
+    "netlify-cli": "^23.8.0",
     "tailwindcss": "^4.1.13"
   }
 }

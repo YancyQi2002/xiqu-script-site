@@ -21,15 +21,17 @@ Rspress-Jingju-Site 是一个基于 [Rspress](https://rspress.dev/) 的静态网
 
 ```text
 rspress-jingju-site/
-├── docs/
-├── styles/index.css           # 全局样式（Tailwind 4 + 自托管字体 + 无障碍优化）
-├── src/components/            # 站点组件
-│   ├── DependenciesList.tsx   # 依赖许可证列表组件
-│   └── dependencies-licenses.json (构建时生成)
-├── rspress.config.ts          # Rspress 配置（品牌/主题/插件/路由）
-├── src-tauri/                 # Tauri 2 应用配置
-├── package.json               # 脚本与依赖
-└── doc_build/                 # 静态站点构建产物（由 rspress build 生成）
+├── docs/                     # 文档内容
+├── src/
+│   └── components/           # 组件目录
+├── src-tauri/                # Tauri 配置
+├── styles/                   # 样式目录
+├── scripts/                  # 构建脚本
+├── rspress.config.ts         # Rspress 配置
+├── package.json              # 脚本与依赖
+├── postcss.config.mjs        # PostCSS 配置
+├── tsconfig.json             # TypeScript 配置
+└── doc_build/                # 静态站点构建产物
 ```
 
 ---
@@ -47,7 +49,7 @@ rspress-jingju-site/
 ## 🚀 快速开始
 
 - Bun ≥ 1.2
-- Rust ≥ 1.89
+- Rust ≥ 1.90
 
 ### 🚀 安装与启动
 

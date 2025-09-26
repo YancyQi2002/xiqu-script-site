@@ -1,9 +1,10 @@
 @import "tailwindcss";
+@import url("https://fontsapi.zeoseven.com/6/main/result.css");
 
 /* 设计令牌：使用原生 CSS 自定义属性，避免工具链对 @theme 的识别告警 */
 :root {
   /* 字体令牌 */
-  --font-doc: "yangrendongzhushi", "KaiTi", "STKaiti", ui-serif, serif;
+  --font-doc: "XuandongKaishu", "KaiTi", "STKaiti", ui-serif, serif;
 
   /* 品牌色（sRGB 回退） */
   --color-brand-1: #EC695C;
@@ -13,10 +14,7 @@
 /* 自托管字体，优化加载体验 */
 @font-face {
   @apply not-italic font-normal;
-  font-family: yangrendongzhushi;
-  src: 
-    url('../fonts/yangrendongzhushiziti.woff2') format('woff2'),
-    url('../fonts/yangrendongzhushiziti.ttf') format('truetype');
+  font-family: "XuandongKaishu";
   font-display: swap;
 }
 
