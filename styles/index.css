@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url("https://fontsapi.zeoseven.com/6/main/result.css");
+@import "tailwindcss";
 
 /* 设计令牌：使用原生 CSS 自定义属性，避免工具链对 @theme 的识别告警 */
 :root {

@@ -73,5 +73,10 @@
     "type": "file",
     "name": "15-battleofWanCheng",
     "label": "战宛城 剧本"
+  },
+  {
+    "type": "file",
+    "name": "16-wuzixu",
+    "label": "伍子胥 剧本"
   }
 ]

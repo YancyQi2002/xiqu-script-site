@@ -4,6 +4,7 @@
 /tauri.build.gradle.kts
 /proguard-tauri.pro
 /tauri.properties
+/build/aarLibraries
 /build/generated
 /build/intermediates
 /build/kotlin
