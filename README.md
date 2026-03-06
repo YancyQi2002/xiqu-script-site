@@ -48,7 +48,7 @@ rspress-jingju-site/
 
 ## 🚀 快速开始
 
-- Bun ≥ 1.2
+- Bun ≥ 1.3
 - Rust ≥ 1.90
 
 ### 🚀 安装与启动
